@@ -6,7 +6,7 @@
 
 ### Prerequisites
 **1.** Kaldi\
-**2.** Development and evaluation datasets of DIHARD 2018
+**2.** Development datasets of DIHARD 2018
 
 
 ### Steps to reproduce v2
@@ -22,13 +22,12 @@ cp /<mod>/run_notrain.sh /<k>/kaldi-master/egs/dihard_2018/v2
 **3.** Preparing the DIHARD dataset to use them in Kaldi. As in stage 0 of run.sh in v2 direcrtory, run the following two commands
 ```
 local/make_dihard_2018_dev.sh <path of development data of DIHARD> data/dihard_2018_dev
-local/make_dihard_2018_eval.sh <path of development data of DIHARD> data/dihard_2018_eval
 ```
        
 **4.** Run stage 1 of run_notrain.sh. This stage creates MFCCs and cepstral mean normalized MFCCs and saves them separately on disk.
 
   
-**5.** change directory to ```/<k>/kaldi-master/egs/dihard_2018/v2``` . Create a directory called exp/xvector_nnet_1a   
+**5.** Change directory to ```/<k>/kaldi-master/egs/dihard_2018/v2``` . Create a directory called exp/xvector_nnet_1a   
 ``` 
 mkdir -p exp/xvector_nnet_1a
 ```
@@ -43,7 +42,7 @@ git clone https://github.com/iiscleap/DIHARD-2019-baseline.git
  cp /<mod>/{final.raw, max_chunk_size, min_chunk_size,extract.config} /{k}/kaldi-master/egs/dihard_2018/v2/exp/xvector_nnet_1a
  ```
 
-**8.** Run stage 9 of run_notrain.sh. This stage creates 512 dimension x-vectors for development and evaluation datasets of DIHARD 2018.
+**8.** Run stage 9 of run_notrain.sh. This stage creates 512 dimension x-vectors for development dataset of DIHARD 2018.
 
 **9.** Copy the trained PLDA model given in this repository as shown below. Now score the x-vectors obtained in stage 8, by executing stage 11 of run_notrain.sh. 
 ```
@@ -58,5 +57,11 @@ cp /<mod>/plda /{k}/kaldi-master/egs/dihard_2018/v2/exp/xvector_nnet_1a/xvectors
 
 | DER                     | Reported      | Reproduced  |
 | :-------------:         |:-------------:| :-----:     |
-| evaluation dataset      | 26.47         |26.27        |
 | development dataset     | 20.03         |20.71        |
+
+Filewise DER results is in the filewise_DER.txt file
+
+
+### Note
+Stage 1 and stage 9 of run_notrain.sh is changed from the run.sh in /{k}/kaldi-master/egs/dihard_2018/v2, as we do not have to train x-vector and PLDA models, which is provided in this repository.\
+transform.mat(PCA-whitening trained on x-vectors of DIHARD dev) and mean.vec(mean of x-vectors of DIHARD dev) files are also provided. These files will get computed during the x-vector extraction stage of DIHARD dev, and will be used in the PLDA scoring stage. 
