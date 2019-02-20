@@ -60,3 +60,8 @@ cp /<mod>/plda /{k}/kaldi-master/egs/dihard_2018/v2/exp/xvector_nnet_1a/xvectors
 | :-------------:         |:-------------:| :-----:     |
 | evaluation dataset      | 26.47         |26.27        |
 | development dataset     | 20.03         |20.71        |
+
+
+### Note
+Stage 1 and stage 9 of run_notrain.sh is changed from the run.sh in /{k}/kaldi-master/egs/dihard_2018/v2, as we do not have to train x-vector and PLDA models, which is provided in this repository.\
+transform.mat(PCA-whitening trained on x-vectors of DIHARD dev) and mean.vec(mean of x-vectors of DIHARD dev) files are also provided. These files will get computed during the x-vector extraction stage of DIHARD dev, and will be used in the PLDA scoring stage. 
