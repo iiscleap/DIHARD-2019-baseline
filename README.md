@@ -6,7 +6,7 @@
 
 ### Prerequisites
 **1.** Kaldi\
-**2.** Development and evaluation datasets of DIHARD 2018
+**2.** Development datasets of DIHARD 2018
 
 
 ### Steps to reproduce v2
@@ -22,7 +22,6 @@ cp /<mod>/run_notrain.sh /<k>/kaldi-master/egs/dihard_2018/v2
 **3.** Preparing the DIHARD dataset to use them in Kaldi. As in stage 0 of run.sh in v2 direcrtory, run the following two commands
 ```
 local/make_dihard_2018_dev.sh <path of development data of DIHARD> data/dihard_2018_dev
-local/make_dihard_2018_eval.sh <path of development data of DIHARD> data/dihard_2018_eval
 ```
        
 **4.** Run stage 1 of run_notrain.sh. This stage creates MFCCs and cepstral mean normalized MFCCs and saves them separately on disk.
@@ -58,7 +57,6 @@ cp /<mod>/plda /{k}/kaldi-master/egs/dihard_2018/v2/exp/xvector_nnet_1a/xvectors
 
 | DER                     | Reported      | Reproduced  |
 | :-------------:         |:-------------:| :-----:     |
-| evaluation dataset      | 26.47         |26.27        |
 | development dataset     | 20.03         |20.71        |
 
 
