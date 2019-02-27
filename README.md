@@ -59,7 +59,7 @@ cp /<mod>/plda /{k}/kaldi-master/egs/dihard_2018/v2/exp/xvector_nnet_1a/xvectors
 | :-------------:         |:-------------:| :-----:     |
 | development dataset     | 20.03         |20.71        |
 
-Filewise DER and Jaccard Error Rate(JER) results is in the filewise_DER_JER.csv file
+Filewise performance metrics of DER, Jaccard Error Rate(JER), Mutual Information (MI) ... are found in the performance_metrics.txt file
 
 
 
