@@ -44,7 +44,7 @@ git clone https://github.com/iiscleap/DIHARD-2019-baseline.git
 
 **8.** Run stage 9 of run_notrain.sh. This stage creates 512 dimension x-vectors for development dataset of DIHARD 2018.
 
-**9.** Copy the trained PLDA model given in this repository as shown below. Now score the x-vectors obtained in stage 8, by executing stage 11 of run_notrain.sh. 
+**9.** Copy the trained PLDA model given in this repository as shown below. Now score the x-vectors obtained from the previous step (step 8), by executing stage 11 of run_notrain.sh. 
 ```
 cp /<mod>/plda /{k}/kaldi-master/egs/dihard_2018/v2/exp/xvector_nnet_1a/xvectors_dihard_2018_dev/
 ```
