@@ -9,6 +9,9 @@
 # See ../README.txt for more info on data required.
 # Results (diarization error rate) are inline in comments below.
 
+stage=$1
+
+
 . ./cmd.sh
 . ./path.sh
 set -e
@@ -16,7 +19,7 @@ mfccdir=`pwd`/mfcc
 vaddir=`pwd`/mfcc
 
 
-if [ $stage -le 0 ]; then
+if [ $stage -eq 0 ]; then
   # STAGE 1 in JHU's xvector implementation
   for name in dihard_2018_dev; do
     steps/make_mfcc.sh --write-utt2num-frames true --mfcc-config conf/mfcc.conf --nj 40 --cmd "$train_cmd --max-jobs-run 20" \
@@ -45,7 +48,7 @@ if [ $stage -le 0 ]; then
 fi
 
 
-if [ $stage -le 1 ]; then
+if [ $stage -eq 1 ]; then
   # STAGE 9 in JHU's xvector implementation
   diarization/nnet3/xvector/extract_xvectors.sh --cmd "$train_cmd --mem 5G" \
     --nj 40 --window 1.5 --period 0.75 --apply-cmn false \
@@ -54,7 +57,20 @@ if [ $stage -le 1 ]; then
 fi
 
 
-if [ $stage -le 2 ]; then
+
+# Perform PLDA scoring
+if [ $stage -eq 2 ]; then
+  # Perform PLDA scoring on all pairs of segments for each recording.
+  diarization/nnet3/xvector/score_plda.sh --cmd "$train_cmd --mem 4G" \
+    --nj 20 $nnet_dir/xvectors_dihard_2018_dev $nnet_dir/xvectors_dihard_2018_dev \
+    $nnet_dir/xvectors_dihard_2018_dev/plda_scores
+
+fi
+
+
+
+
+if [ $stage -le 3 ]; then
   # STAGE 12 in JHU's xvector implementation 
   # Cluster the PLDA scores using a stopping threshold.
   # First, we find the threshold that minimizes the DER on DIHARD 2018 development set.
