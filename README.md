@@ -80,7 +80,7 @@ bash run_notrain.sh 3
 | :-------------:         |:-------------:| :-----:     |
 | development dataset     | 20.03         |20.71        |
 
-Filewise performance metrics of DER, Jaccard Error Rate(JER), Mutual Information (MI) ... are found in the performance_metrics_DIHARD_dev_2018.txt and performance_metrics_DIHARD_dev_2019.txt file, computed using the scoring script in [dscore](https://github.com/nryant/dscore "https://github.com/nryant/dscore")
+Filewise performance metrics of DER, Jaccard Error Rate(JER), Mutual Information (MI) ... are found in the performance_metrics_DIHARD_dev_2018.txt, computed using the scoring script in [dscore](https://github.com/nryant/dscore "https://github.com/nryant/dscore")
 
 
 
