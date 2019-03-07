@@ -10,16 +10,20 @@
 
 
 ### Steps to reproduce v2
-**1.** Traverse to the directory of choice (called \<k\> here after) and clone the Kaldi repository using the following command
+**1.** Select a directory to clone this repository (say \<mod\>) and execute the following command.
+```
+git clone https://github.com/iiscleap/DIHARD-2019-baseline.git
+```
+**2.** Traverse to the directory of choice (called \<k\> here after) and clone the Kaldi repository using the following command
 ```
 git clone https://github.com/kaldi-asr/kaldi.git 
 ```
-**2.** Copy the run_notrain.sh file into the ```/<k>/kaldi-master/egs/dihard_2018/v2``` directory
+**3.** Copy the run_notrain.sh file into the ```/<k>/kaldi-master/egs/dihard_2018/v2``` directory
 ```
 cp /<mod>/run_notrain.sh /<k>/kaldi-master/egs/dihard_2018/v2
 ```
 
-**3.** Copy the make_dihard_2019_dev_eval_alltracks.py and make_dihard_2019_dev_eval_alltracks.sh file obtained by cloning iiscleap/DIHARD-2019-baseline into 'local' directory of /<k>/kaldi-master
+**4.** Copy the make_dihard_2019_dev_eval_alltracks.py and make_dihard_2019_dev_eval_alltracks.sh file obtained by cloning iiscleap/DIHARD-2019-baseline into 'local' directory of /<k>/kaldi-master
 ```
 cp /<mod>/{make_dihard_2019_dev_eval_alltracks.py,make_dihard_2019_dev_eval_alltracks.sh} /<k>/kaldi-master/local       
 ```
@@ -28,20 +32,17 @@ Preparing the DIHARD dataset to use them in Kaldi. As in stage 0 of run.sh in v2
 local/make_dihard_2019_dev_eval_alltracks.sh --devoreval dev --tracknum 1 <path of development data of DIHARD> data/dihard_2018_dev
 ```
        
-**4.** Run stage 0 of run_notrain.sh. This stage creates MFCCs and cepstral mean normalized MFCCs and saves them separately on disk.
+**5.** Run stage 0 of run_notrain.sh. This stage creates MFCCs and cepstral mean normalized MFCCs and saves them separately on disk.
 ```
 bash run_notrain.sh 0
 ```
   
-**5.** Change directory to ```/<k>/kaldi-master/egs/dihard_2018/v2``` . Create a directory called exp/xvector_nnet_1a   
+**6.** Change directory to ```/<k>/kaldi-master/egs/dihard_2018/v2``` . Create a directory called exp/xvector_nnet_1a   
 ``` 
 mkdir -p exp/xvector_nnet_1a
 ```
        
-**6.** Select a directory to clone this repository (say \<mod\>) and execute the following command.
-```
-git clone https://github.com/iiscleap/DIHARD-2019-baseline.git
-```
+
        
 **7.** Copy the final.raw, max_chunk_size, min_chunk_size and extract.config files in <mod> to the created directory in step 5. 
        
