@@ -39,9 +39,12 @@ mkdir -p exp/xvector_nnet_1a
 git clone https://github.com/iiscleap/DIHARD-2019-baseline.git
 ```
        
-**7.** Copy the final.raw, max_chunk_size, min_chunk_size and extract.config files in <mod> to the created directory in step 5.
+**7.** Copy the final.raw, max_chunk_size, min_chunk_size and extract.config files in <mod> to the created directory in step 5. 
+       Copy the make_dihard_2019_dev_eval_alltracks.py and make_dihard_2019_dev_eval_alltracks.sh file obtained by cloning iiscleap/DIHARD-2019-baseline into 'local' directory of /<k>/kaldi-master
  ```
  cp /<mod>/{final.raw, max_chunk_size, min_chunk_size,extract.config} /<k>/kaldi-master/egs/dihard_2018/v2/exp/xvector_nnet_1a
+       
+ cp /<mod>/{make_dihard_2019_dev_eval_alltracks.py,make_dihard_2019_dev_eval_alltracks.sh} /<k>/kaldi-master/local
  ```
 
 **8.** Run stage 1 of run_notrain.sh. This stage creates 512 dimension x-vectors for development dataset of DIHARD 2018.
