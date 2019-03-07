@@ -6,7 +6,7 @@
 
 ### Prerequisites
 **1.** Kaldi\
-**2.** Development datasets of DIHARD 2018
+**2.** Development datasets of DIHARD 2019 (This script also works for DIHARD 2018 development dataset also)
 
 
 ### Steps to reproduce v2
@@ -60,14 +60,20 @@ bash run_notrain.sh 2
 bash run_notrain.sh 3
 ```
 
+### Results obtained for DIHARD 2019 dev datset
 
-### Results obtained
+| DER                     | DIHARD_2019_DEV| 
+| :-------------:         |:-------------: | 
+| development dataset     | 23.95          |
+
+
+### Results obtained for DIHARD 2018 dev datset
 
 | DER                     | Reported      | Reproduced  |
 | :-------------:         |:-------------:| :-----:     |
 | development dataset     | 20.03         |20.71        |
 
-Filewise performance metrics of DER, Jaccard Error Rate(JER), Mutual Information (MI) ... are found in the performance_metrics.txt file, computed using the scoring script in [dscore](https://github.com/nryant/dscore "https://github.com/nryant/dscore")
+Filewise performance metrics of DER, Jaccard Error Rate(JER), Mutual Information (MI) ... are found in the performance_metrics_DIHARD_dev_2018.txt and performance_metrics_DIHARD_dev_2019.txt file, computed using the scoring script in [dscore](https://github.com/nryant/dscore "https://github.com/nryant/dscore")
 
 
 
