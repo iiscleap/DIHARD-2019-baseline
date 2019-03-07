@@ -17,7 +17,7 @@ stage=$1
 set -e
 mfccdir=`pwd`/mfcc
 vaddir=`pwd`/mfcc
-nnet_dir=/home/data1/SRE18/harshav/dihard_2018/v2/exp/xvector_nnet_1a
+nnet_dir=exp/xvector_nnet_1a
 
 
 if [ $stage -eq 0 ]; then
